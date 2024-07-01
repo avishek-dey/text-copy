@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="32.ico">
+    <title>Text Copy Tool</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: #0D1117;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            /* padding: 534px; */
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            display: inline-block;
+            margin: 0;
+            padding-right: 10px;
+        }
+
+        h1 {
+            width: 100%;
+            padding-bottom: px;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            color: white;
+            font-weight: 300;
+        }
+
+        .text {
+            overflow: hidden;
+            height: 24px;
+            width: 100%;
+            padding: 5px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #dfdfdf;
+            vertical-align: middle;
+            background-color: #0D1117;
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            border: 1px solid #30363D;
+            border-radius: 6px;
+            outline: none;
+            box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+
+            :focus {
+                border-color: #0366d6;
+                outline: none;
+                box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+            }
+
+        }
+
+        button {
+            width: 15%;
+            outline: 0;
+            cursor: pointer;
+            padding: 5px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            vertical-align: middle;
+            border: 1px solid;
+            border-radius: 6px;
+            color: #ffffff;
+            background-color: #1F6FEB;
+            border-color: #1b1f2326;
+            box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+            transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+            transition-property: color, background-color, border-color;
+
+            &:hover {
+                background-color: #4a86df;
+                border-color: #1b1f2326;
+                transition-duration: 0.1s;
+            }
+
+        }
+
+        .form {
+            width: 40%;
+            height: fit-content;
+            padding: 34px;
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <h1>Text Copy Tool</h1>
+        <div class="container">
+            <p class="text" id="fixedText2">FIGMA LIVE LINK:</p>
+            <button class="copy-button" onclick="copyText('fixedText2')">Copy <i class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="fixedText3">PM: Figma Live link view access is not given. Get access before posting to
+                the
+                Client.</p>
+            <button class="copy-button" onclick="copyText('fixedText3')">Copy <i class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="fixedText4">Gathered inspiration</p>
+            <button class="copy-button" onclick="copyText('fixedText4')">Copy <i class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="dynamicText1"></p>
+            <button class="copy-button" onclick="copyText('dynamicText1')">Copy <i
+                    class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="dynamicText2">
+            </p>
+            <button class="copy-button" onclick="copyText('dynamicText2')">Copy <i
+                    class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="fixedText5">For Approval:
+                <br>
+                <br>
+                Task-
+                <br>
+                <br>
+                Design-
+            </p>
+            <button class="copy-button" onclick="copyText('fixedText5')">Copy <i class="ri-file-copy-line"></i></button>
+        </div>
+        <div class="container">
+            <p class="text" id="fixedText6">FIGMA LIVE LINK:</p>
+            <button class="copy-button" onclick="copyText('fixedText6')">Copy <i class="ri-file-copy-line"></i></button>
+        </div>
+
+    </div>
+
+    <script>
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = date.toLocaleString('default', { month: 'short' }).toUpperCase();
+            const year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
+        function updateDynamicTexts() {
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            document.getElementById('dynamicText1').innerText = `_AD_${formattedDate}_V1`;
+            document.getElementById('dynamicText2').innerText = `Week-2 : ${formattedDate}`;
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+
+            });
+        }
+
+        updateDynamicTexts();
+    </script>
+</body>
+
+</html>
