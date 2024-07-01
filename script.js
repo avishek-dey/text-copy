@@ -27,7 +27,6 @@ function copyText(elementId) {
     textElement.setSelectionRange(0, 99999); // For mobile devices
     document.execCommand('copy');
     textElement.blur();
-    alert('Copied to clipboard: ' + textElement.value);
 }
 
 // Update text fields with current date when the page loads
