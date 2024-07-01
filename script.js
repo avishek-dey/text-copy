@@ -13,7 +13,7 @@ function getWeekFormattedDate() {
     const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const month = monthNames[now.getMonth()];
     const year = now.getFullYear();
-    return `Week-2: ${day}-${month}-${year}`;
+    return `Week-2 : ${day}-${month}-${year}`;
 }
 
 function updateTextFields() {
